@@ -1,0 +1,4 @@
+#!/bin/bash 
+manifest_path="/path/to/manifest.yaml"
+kubectl apply -f $manifest_path 
+echo"Manifest applied: $manifest_path" 
