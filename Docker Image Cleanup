@@ -1,0 +1,9 @@
+#!/bin/bash 
+threshold_days=30  
+
+docker images --format '{{.Repository}} {{.Tag}} {{.CreatedSince}}' | while read repo tag created; do 
+  if [[ $created == *"$threshold_days days ago"* ]]; then       
+    echo "Deleting image: $repo:$tag"     
+    docker rmi "$repo:$tag"     
+  fi
+done
