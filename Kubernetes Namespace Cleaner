@@ -1,0 +1,9 @@
+#!/bin/bash 
+namespace="test-environment" 
+kubectl get namespaces | grep $namespace && \
+kubectl delete namespace $namespace && \ 
+echo "Namespace $namespace deleted." 
+
+# Recreate namespace 
+kubectl create namespace $namespace 
+echo "Namespace $namespace recreated." 
